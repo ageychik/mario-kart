@@ -207,7 +207,7 @@ input {
     right: 0;
     bottom: 0; }
     .slider-main .slide._single {
-      background-image: url(../images/single-bg.jpg); }
+      background-image: url(public/images/single-bg.jpg); }
       .slider-main .slide._single .slide-unit {
         background-size: cover;
         position: absolute;
