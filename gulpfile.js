@@ -1,16 +1,17 @@
 const gulp = require('gulp');
 const sass = require('gulp-sass');
 const concat = require('gulp-concat');
+const sourcemaps = require('gulp-sourcemaps');
 const autoprefixer = require('gulp-autoprefixer');
 
 
 gulp.task('sass', function () {
     return gulp.src('./src/scss/*.scss')
-        .pipe(sass().on('error', sass.logError))
-        .pipe(autoprefixer({
-            cascade: false
-        }))
+        .pipe(sourcemaps.init())
+        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
         .pipe(concat('style.css'))
+        .pipe(autoprefixer('last 2 versions'))
+        .pipe(sourcemaps.write())
         .pipe(gulp.dest('./public/css'));
 });
 
