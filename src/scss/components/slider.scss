@@ -156,30 +156,20 @@ input {
     &._single {
       background-image: url(../images/single-bg.jpg);
       .slide-unit {
-        background-size: cover;
         position: absolute;
         transform: translate(25%, -20%);
         &._mario {
-          background-image: url(../images/single-mario.png);
-          width: 616px;
-          height: 546px;
           right: 0;
           bottom: 0;
           z-index: 1;
           transition: all .3s;
         }
         &._peach {
-          background-image: url(../images/single-peach.png);
-          width: 277px;
-          height: 419px;
           bottom: 280px;
           right: 110px;
           transition: all .25s;
         }
         &._bowser {
-          background-image: url(../images/single-bowser.png);
-          width: 347px;
-          height: 362px;
           right: 360px;
           bottom: 160px;
           transition: all .3s;
@@ -189,21 +179,14 @@ input {
     &._multi {
       background-image: url(../images/multi-bg.jpg);
       .multi-unit {
-        background-size: cover;
         position: absolute;
         &._mario {
-          background-image: url(../images/multi-mario.png);
-          width: 759px;
-          height: 565px;
           left: 320px;
           bottom: 30px;
           transform: translate(-50%, 6%);
           transition: all .5s;
         }
         &._inkling {
-          background-image: url(../images/multi-inkling.png);
-          width: 711px;
-          height: 603px;
           bottom: 0;
           right: -190px;
           transform: translate(50%, -3%);
@@ -214,22 +197,15 @@ input {
     &._online {
       background-image: url(../images/online-bg.jpg);
       .online-unit {
-        background-size: cover;
         position: absolute;
 
         &._toad {
-          background-image: url(../images/online-toad.png);
-          width: 398px;
-          height: 500px;
           right: -150px;
           bottom: 120px;
           animation: toad 10s linear infinite;
           transition: all .5s;
         }
         &._satellite {
-          background-image: url(../images/online-satellite.png);
-          width: 246px;
-          height: 195px;
           animation: satellite 15s linear infinite;
           left: 460px;
           top: -300px;

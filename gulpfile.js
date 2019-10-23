@@ -3,6 +3,8 @@ const sass = require('gulp-sass');
 const concat = require('gulp-concat');
 const sourcemaps = require('gulp-sourcemaps');
 const autoprefixer = require('gulp-autoprefixer');
+const spritesmith = require('gulp.spritesmith');
+
 
 
 gulp.task('sass', function () {
@@ -15,6 +17,13 @@ gulp.task('sass', function () {
         .pipe(gulp.dest('./public/css'));
 });
 
+gulp.task('sprite', function () {
+    const spriteData = gulp.src('./public/images/*.png').pipe(spritesmith({
+        imgName: 'sprite.png',
+        cssName: 'sprite.css'
+    }));
+    return spriteData.pipe(gulp.dest('public/images/sprite'));
+});
 
 
 gulp.task('default', function (){
