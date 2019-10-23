@@ -1,0 +1,46 @@
+$font: 'Exo 2', sans-serif;
+
+@mixin getActive{
+  background: linear-gradient(to right,  rgba(249,205,53,.9) 0%,rgba(251,239,173,.9) 100%);
+  cursor: default;
+  width: 400px;
+  &:before {
+    border-right-color: rgba(249,205,53,.9);
+  }
+  &:after {
+    border-left-color: rgba(251,239,173,.9);
+  }
+}
+
+@keyframes aside {
+  from {
+    background-position: 0 0, 100px 100px;
+  }
+  to {
+    background-position: 200px 0, 300px 100px;
+  }
+}
+
+@keyframes toad {
+  0% {
+    transform: translateX(5%);
+  }
+  50% {
+    transform: translateX(-5%);
+  }
+  100% {
+    transform: translateX(5%);
+  }
+}
+
+@keyframes satellite {
+  0% {
+    transform: translateY(-10%);
+  }
+  50% {
+    transform: translateY(10%);
+  }
+  100% {
+    transform: translateY(-10%);
+  }
+}

@@ -1,0 +1,241 @@
+input {
+  //display: none;
+  &#single {
+    &:checked {
+      & ~ .slider-sidebar .slider-btn._single {
+        @include getActive
+      }
+      & ~ .slider-main .slide._single {
+        opacity: 1;
+        .slide-unit {
+          transform: translate(0);
+        }
+      }
+    }
+  }
+  &#multi {
+    &:checked {
+      & ~ .slider-sidebar .slider-btn._multi {
+        @include getActive
+      }
+      & ~ .slider-main .slide._multi {
+        opacity: 1;
+        .multi-unit {
+          transform: translate(0);
+        }
+      }
+    }
+  }
+  &#online {
+    &:checked {
+      & ~ .slider-sidebar .slider-btn._online {
+        @include getActive
+      }
+      & ~ .slider-main .slide._online {
+        opacity: 1;
+        .online-unit {
+          &._toad {
+            right: 20px;
+          }
+          &._satellite {
+            top: 60px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.slider {
+  height: 100vh;
+  background: rgba(0, 0, 0, .1);
+  overflow: hidden;
+  position: relative;
+}
+
+.slider-sidebar {
+  width: 30%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  .slider-bg {
+    background-color: white;
+    background-image: linear-gradient(45deg, black 25%, transparent 25%, transparent 74%, black 75%, black), linear-gradient(45deg, black 25%, transparent 25%, transparent 74%, black 75%, black);
+    background-size: 200px 200px;
+    background-position: 0 0, 100px 100px;
+    transform: perspective(280px) rotate3d(0, -1, 2, -25deg) scale(1.7) translate(-15%, 15%);
+    opacity: .8;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    animation: aside 8s linear infinite;
+    &:after {
+      content: '';
+      background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .9) 40%, rgba(255, 255, 255, 1) 100%);
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+  }
+}
+
+.slider-menu {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding-left: 100px;
+
+  .slider-menu-item {
+    margin-bottom: 40px;
+    label {
+      font: 28px $font;
+      background: rgb(163, 163, 163);
+      background: linear-gradient(to right, rgba(163, 163, 163, .9) 0%, rgba(237, 237, 237, .9) 100%);
+      padding: 20px 35px 20px 90px;
+      display: block;
+      position: relative;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
+      cursor: pointer;
+      width: 300px;
+      transition: all .2s;
+      &:before,
+      &:after {
+        content: '';
+        width: 0;
+        height: 0;
+        border-top: 37px solid transparent;
+        border-bottom: 37px solid transparent;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+      }
+      &:before {
+        border-right: 20px solid rgba(163, 163, 163, .9);
+        right: 100%;
+      }
+      &:after {
+        border-left: 20px solid rgba(237, 237, 237, .9);
+        left: 100%;
+        transform: translateX(-0.5px);
+
+      }
+      &:hover {
+        background: linear-gradient(to right, rgba(249, 205, 53, .9) 0%, rgba(251, 239, 173, .9) 100%);
+        width: 350px;
+        &:before {
+          border-right-color: rgba(249, 205, 53, .9);
+        }
+        &:after {
+          border-left-color: rgba(251, 239, 173, .9);
+        }
+      }
+    }
+  }
+}
+
+.slider-main {
+  height: 100%;
+  .slide {
+    background-size: cover;
+    background-position: center right;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    &._single {
+      background-image: url(../images/single-bg.jpg);
+      .slide-unit {
+        background-size: cover;
+        position: absolute;
+        transform: translate(25%, -20%);
+        &._mario {
+          background-image: url(../images/single-mario.png);
+          width: 616px;
+          height: 546px;
+          right: 0;
+          bottom: 0;
+          z-index: 1;
+          transition: all .3s;
+        }
+        &._peach {
+          background-image: url(../images/single-peach.png);
+          width: 277px;
+          height: 419px;
+          bottom: 280px;
+          right: 110px;
+          transition: all .25s;
+        }
+        &._bowser {
+          background-image: url(../images/single-bowser.png);
+          width: 347px;
+          height: 362px;
+          right: 360px;
+          bottom: 160px;
+          transition: all .3s;
+        }
+      }
+    }
+    &._multi {
+      background-image: url(../images/multi-bg.jpg);
+      .multi-unit {
+        background-size: cover;
+        position: absolute;
+        &._mario {
+          background-image: url(../images/multi-mario.png);
+          width: 759px;
+          height: 565px;
+          left: 320px;
+          bottom: 30px;
+          transform: translate(-50%, 6%);
+          transition: all .5s;
+        }
+        &._inkling {
+          background-image: url(../images/multi-inkling.png);
+          width: 711px;
+          height: 603px;
+          bottom: 0;
+          right: -190px;
+          transform: translate(50%, -3%);
+          transition: all .5s;
+        }
+      }
+    }
+    &._online {
+      background-image: url(../images/online-bg.jpg);
+      .online-unit {
+        background-size: cover;
+        position: absolute;
+
+        &._toad {
+          background-image: url(../images/online-toad.png);
+          width: 398px;
+          height: 500px;
+          right: -150px;
+          bottom: 120px;
+          animation: toad 10s linear infinite;
+          transition: all .5s;
+        }
+        &._satellite {
+          background-image: url(../images/online-satellite.png);
+          width: 246px;
+          height: 195px;
+          animation: satellite 15s linear infinite;
+          left: 460px;
+          top: -300px;
+          transition: all .5s;
+        }
+      }
+    }
+  }
+}
